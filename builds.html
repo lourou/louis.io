@@ -2,74 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>louis rouffineau / builds</title>
-  <style>
-    body {
-      background: #fdfdfd;
-      color: #111;
-      font-family: monospace;
-      padding: 2rem;
-      max-width: 640px;
-      margin: 0;
-    }
-    h1 {
-      font-size: 1.8rem;
-    }
-    dt {
-      margin-top: 2rem;
-      font-weight: bold;
-    }
-    dd {
-      margin: 0.2rem 0 0 1rem;
-    }
-    .side-projects {
-      margin-top: 2rem;
-      color: #666;
-    }
-    .back-link {
-      margin-top: 2rem;
-      color: #666;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-  </style>
+  <meta name="description" content="things louis rouffineau has built: xmtp labs, convos, calling codes, an ai calendar tool, jungle program, lacompany and wumm">
+  <link rel="canonical" href="https://louis.io/builds">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/calling-code-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/caret.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="louis.io">
+  <meta property="og:title" content="louis rouffineau / builds">
+  <meta property="og:description" content="xmtp labs, convos, calling codes, an ai calendar tool, jungle program, lacompany and wumm">
+  <meta property="og:url" content="https://louis.io/builds">
+  <!-- TODO(louis): add og:image / twitter:image once /og.png exists. -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@callingcode">
+  <meta name="twitter:title" content="louis rouffineau / builds">
+  <meta name="twitter:description" content="xmtp labs, convos, calling codes, an ai calendar tool, jungle program, lacompany and wumm">
 </head>
 <body>
-  <h1>/builds</h1>
-  <dl>
-    <dt>building <a href="https://www.convos.org">convos</a></dt>
-    <dd>
-      everyday private chat for the ai era
-      <br />groupchat with friends, family and ai agents
-    </dd>
+  <div class="page">
+    <header>
+      <nav class="site-nav" aria-label="site">
+        <a href="/">louis.io</a>
+        <a href="/now">/now</a>
+        <a href="/builds" aria-current="page">/builds</a>
+      </nav>
+    </header>
 
-    <dt>calling codes</dt>
-    <dd>
-      co-founder & cto – driving technical direction for ai-driven agent solutions
-      <br />open-source focus
-    </dd>
+    <main>
+      <h1>/builds<span class="caret" aria-hidden="true"></span></h1>
 
-    <dt>ai calendar tool (2023–2025)</dt>
-    <dd>built an assistant for scheduling & prioritizing time – acquired</dd>
+      <h2>// now</h2>
 
-    <dt>jungle program (2019-2023)</dt>
-    <dd>co-founder & cto – built training ecosystem for data science teams worldwide</dd>
+      <article class="entry">
+        <h3 class="entry-head"><a href="https://xmtplabs.com">xmtp labs</a> <span class="when ongoing">2023–</span></h3>
+        <div class="role">
+          <p class="role-title">staff software engineer <span class="when ongoing">2024–</span></p>
+          <ul class="sub">
+            <li>now: <a href="https://agentpicnic.com/">picnic</a>, a permission layer for ai&nbsp;agents</li>
+            <li>earlier: founding iOS engineer of <a href="https://www.convos.org">convos</a>, multiplayer ai&nbsp;agents
+              <span class="stack">native swift/swiftui · messaging layer security (mls, rfc 9420) · advanced cryptography · decentralized networks · app attest · push notifications · IaC (terraform, aws) ·&nbsp;ci/cd</span></li>
+          </ul>
+        </div>
+        <div class="role">
+          <p class="role-title">senior software engineer <span class="when">2023–2024</span></p>
+          <ul class="sub">
+            <li>joined with the converse messenger acquisition, on the react native client for iOS &amp;&nbsp;android
+              <span class="stack">conversation search · consent protocol · spam filtering ·&nbsp;notifications</span></li>
+          </ul>
+        </div>
+      </article>
 
-    <dt>lacompany (2008-2020)</dt>
-    <dd>
-      co-founder & cto – award-winning mobile & web apps for nespresso, nestlé,
-      <br />air france, cartier, accorhotels, paris fashion week, issey miyake, etc…
-      <br />team of 30+ devs
-    </dd>
+      <article class="entry">
+        <h3 class="entry-head"><a href="https://callingcodes.com">calling codes</a></h3>
+        <p class="desc">my company – i contract through it, and my mac apps live there, starting with&nbsp;<a href="https://callingcodes.com/fivebars/">fivebars</a></p>
+      </article>
 
-    <dt>wumm</dt>
-    <dd>20+ years of underground house music – vinyl, live shows, dj sets</dd>
-  </dl>
+      <h2>// before</h2>
 
-  <p class="side-projects">// side projects, experiments & ideas always in orbit</p>
+      <article class="entry">
+        <h3 class="entry-head">ai calendar tool <span class="when">2023–2025</span></h3>
+        <p class="desc">built an assistant for scheduling & prioritizing time&nbsp;–&nbsp;acquired</p>
+      </article>
 
-  <p class="back-link"><a href="/">← back</a></p>
+      <article class="entry">
+        <h3 class="entry-head">jungle program <span class="when">2019–2023</span></h3>
+        <p class="role-title">co-founder &amp; cto</p>
+        <p class="desc">built training ecosystem for data science teams&nbsp;worldwide</p>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry-head">lacompany <span class="when">2008–2020</span></h3>
+        <p class="role-title">co-founder &amp; cto</p>
+        <p class="desc">award-winning mobile &amp; web apps for cartier, issey miyake, paris fashion week, nespresso, air&nbsp;france, konbini and many&nbsp;more</p>
+        <p class="desc">team of 30+&nbsp;devs</p>
+      </article>
+
+      <h2>// outside work</h2>
+
+      <article class="entry">
+        <h3 class="entry-head">wumm</h3>
+        <p class="desc">20+ years of underground house music – vinyl, live shows, dj&nbsp;sets</p>
+      </article>
+
+      <p class="side-projects">// side projects, experiments &amp; ideas always&nbsp;in&nbsp;orbit</p>
+    </main>
+
+    <footer>
+      <p class="back"><a href="/">←&nbsp;back</a></p>
+    </footer>
+  </div>
 </body>
 </html>
