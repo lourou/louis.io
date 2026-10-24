@@ -154,9 +154,16 @@ p, dd, li { text-wrap: pretty; }
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
+/* Wide screens: balance the two lines so nothing dangles. Phones keep pretty, which keeps the parenthetical whole. */
+@media (min-width: 40em) {
+  .lead { text-wrap: balance; }
+}
 .lead strong { font-weight: 400; }
 
 .muted { color: var(--muted); }
+
+/* The home tagline belongs to the h1: tight above, a clear break below. */
+.tagline { margin: -0.75rem 0 2rem; }
 
 .nowrap { white-space: nowrap; }
 
@@ -188,7 +195,7 @@ a:focus-visible {
   border-top: 1px solid var(--rule);
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1.75rem;
+  gap: 0 clamp(1.25rem, 3vw, 1.75rem);
 }
 .contact a {
   display: inline-flex;
