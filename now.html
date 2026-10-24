@@ -2,36 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>louis rouffineau / now</title>
-  <style>
-    body {
-      background: #fdfdfd;
-      color: #111;
-      font-family: monospace;
-      padding: 2rem;
-      margin: 0;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-    .back-link {
-      margin-top: 2rem;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    p {
-      margin-top: 1.2rem;
-    }
-  </style>
+  <meta name="description" content="what louis rouffineau is doing now: staff software engineer on picnic at xmtp labs, small mac apps at calling codes, based in paris">
+  <link rel="canonical" href="https://louis.io/now">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/calling-code-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/caret.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="louis.io">
+  <meta property="og:title" content="louis rouffineau / now">
+  <meta property="og:description" content="staff software engineer on picnic at xmtp labs, small mac apps at calling codes, based in paris">
+  <meta property="og:url" content="https://louis.io/now">
+  <!-- TODO(louis): add og:image / twitter:image once /og.png exists. -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@callingcode">
+  <meta name="twitter:title" content="louis rouffineau / now">
+  <meta name="twitter:description" content="staff software engineer on picnic at xmtp labs, small mac apps at calling codes, based in paris">
 </head>
 <body>
-  <h1>/now</h1>
-  <p>currently building <a href="https://www.convos.org">convos</a> – everyday private chat for the ai era, groupchat with friends, family and ai agents</p>
-  <p>experimenting with iOS native mobile apps, ai, agents and tooling for creative people</p>
-  <p>based in paris</p>
-  <p class="back-link"><a href="/">← back</a></p>
+  <div class="page">
+    <header>
+      <nav class="site-nav" aria-label="site">
+        <a href="/">louis.io</a>
+        <a href="/now" aria-current="page">/now</a>
+        <a href="/builds">/builds</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>/now<span class="caret" aria-hidden="true"></span></h1>
+      <p class="muted">updated <time datetime="2026-10">oct&nbsp;2026</time></p>
+
+      <p class="lead">staff software engineer on <a href="https://agentpicnic.com/"><strong>picnic</strong></a> at <a href="https://xmtplabs.com">xmtp&nbsp;labs</a></p>
+
+      <p>shipping small mac apps at <a href="https://callingcodes.com">calling codes</a>, starting with&nbsp;<a href="https://callingcodes.com/fivebars/">fivebars</a></p>
+
+      <p>based&nbsp;in&nbsp;paris</p>
+    </main>
+
+    <footer>
+      <p class="back"><a href="/">←&nbsp;back</a></p>
+    </footer>
+  </div>
 </body>
 </html>
