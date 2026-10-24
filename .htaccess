@@ -1,9 +1,46 @@
-# Redirect www to non-www
 RewriteEngine On
+
+# Redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 
-# Rewrite /now to /now.html, /builds to /builds.html
+# Internal passes (the .html rewrite below, ErrorDocument) skip every rule after this
+# one, so nothing can redirect or loop on a request Apache made to itself.
+RewriteCond %{ENV:REDIRECT_STATUS} !^$
+RewriteRule ^ - [L]
+
+# /index.html -> / (only when the visitor asked for it, not for the DirectoryIndex of /)
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [L,R=301]
+
+# /now.html -> /now, /builds.html -> /builds: existing pages only, never 404.html
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/+([a-zA-Z0-9_-]+)\.html[?\s] [NC]
+RewriteCond %1 !^404$
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^([a-zA-Z0-9_-]+)\.html$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# /now/ -> /now; real directories (/fonts/) are left alone
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]+)/$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# Rewrite /now to /now.html, /builds to /builds.html (404 stays a real 404)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^404$
 RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
+
+# Custom 404 (the page carries noindex)
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  # The font never changes in place (rename the file if it does). A long immutable
+  # cache also removes Chrome's "preloaded but not used" warning on repeat views.
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Share image and favicon: one day. style.css and caret.js keep the host default,
+  # since they are not fingerprinted.
+  <FilesMatch "\.(png|svg)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
