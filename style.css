@@ -1,0 +1,268 @@
+/* louis.io, one stylesheet for every page. No JS, no tracking. */
+
+/* Calling Code by Ryoichi Tsunekawa (Dharma Type), the Calling Codes brand face.
+   Latin subset, self-hosted. One weight: hierarchy comes from size and ink, never faux bold. */
+@font-face {
+  font-family: "Calling Code";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/calling-code-regular.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: light dark;
+  --paper: #fdfdfd;
+  --ink: #111;
+  --muted: #5e5e5e;
+  --faint: #6f6f6f;
+  --rule: rgba(17, 17, 17, 0.12);
+  --link: #0066cc;
+  --link-line: rgba(0, 102, 204, 0.35);
+  --select: rgba(0, 102, 204, 0.16);
+  --date: #4f6d94;
+  --date-now: #2f5c96;
+  --mono: "Calling Code", ui-monospace, Menlo, monospace;
+  --gutter: clamp(16px, 6vw, 4rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111214;
+    --ink: #e8e6e1;
+    --muted: #a3a19c;
+    --faint: #8f8d88;
+    --rule: rgba(232, 230, 225, 0.14);
+    --link: #6eaaff;
+    --link-line: rgba(110, 170, 255, 0.4);
+    --select: rgba(110, 170, 255, 0.24);
+    --date: #8ea6c6;
+    --date-now: #9fb6d6;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-synthesis: none;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--select); color: var(--ink); }
+
+.page {
+  max-width: calc(72ch + 2 * var(--gutter));
+  padding: clamp(1.5rem, 5vh, 3.5rem) var(--gutter) 4rem;
+}
+
+/* Site nav: the slash routes, the current one in ink. */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: 0 0 clamp(3rem, 12vh, 7rem);
+  font-size: 0.9375rem;
+}
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--link); }
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--link);
+  text-underline-offset: 0.35em;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* The one signature: a terminal caret that blinks a few times, then stays. */
+.caret {
+  position: relative;
+  display: inline-block;
+  width: 0.42em;
+  height: 0.78em;
+  margin-left: 0.18em;
+  vertical-align: -0.04em;
+  background: var(--link);
+  animation: caret 1.1s steps(1, end) 5 forwards;
+}
+@keyframes caret {
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* caret.js swaps to an identical animation name, which restarts the blink. */
+.caret.reblink { animation-name: caret-again; }
+@keyframes caret-again {
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .caret { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  /* A slightly padded, still caret-sized hit area that leaves layout untouched. */
+  .caret::before {
+    content: "";
+    position: absolute;
+    left: -0.2em;
+    right: -0.2em;
+    top: 50%;
+    height: max(24px, 1em);
+    transform: translateY(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret { animation: none; }
+}
+
+h2 {
+  margin: 3.5rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+p { margin: 0 0 1rem; }
+
+p, dd, li { text-wrap: pretty; }
+
+.lead {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.lead strong { font-weight: 400; }
+
+.muted { color: var(--muted); }
+
+.nowrap { white-space: nowrap; }
+
+.section { margin-top: 2.5rem; }
+
+/* Prose links: underlined, so they never rely on colour alone. */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--link-line);
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 0.15s ease-out;
+}
+a:hover {
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.contact {
+  list-style: none;
+  margin: 3.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+}
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* /builds */
+.entry { margin-top: 1.75rem; }
+h2 + .entry { margin-top: 1rem; }
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1rem;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.when {
+  color: var(--date);
+  letter-spacing: 0.02em;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+}
+.when.ongoing { color: var(--date-now); }
+.role,
+.entry > .role-title,
+.entry > .desc { padding-left: 1.25rem; }
+.role { margin-top: 0.625rem; }
+.role + .role { margin-top: 1.125rem; }
+.role-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1rem;
+  margin: 0;
+}
+.entry > .role-title { margin-top: 0.375rem; }
+.desc {
+  margin: 0.375rem 0 0;
+  color: var(--muted);
+}
+.sub {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  color: var(--muted);
+}
+.sub li + li { margin-top: 0.5rem; }
+.stack {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+  color: var(--faint);
+}
+
+.side-projects {
+  margin-top: 3.5rem;
+  color: var(--faint);
+}
+
+.back {
+  margin: 3.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+time { color: var(--muted); }
