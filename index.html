@@ -4,71 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Louis Rouffineau · i make stuff on the internet</title>
-  <meta name="description" content="Louis Rouffineau · i make stuff on the internet · i build, ship, and run things, and aim to make them beautiful · currently building convos, everyday private chat for the ai era · based in paris">
+  <meta name="description" content="Louis Rouffineau · staff software engineer on picnic at xmtp labs · i build, ship, and run things, and aim to make them beautiful · based in paris">
   <link rel="canonical" href="https://louis.io/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/calling-code-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/caret.js" defer></script>
   <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="louis.io">
   <meta property="og:title" content="Louis Rouffineau · i make stuff on the internet">
-  <meta property="og:description" content="i build, ship, and run things, and aim to make them beautiful · currently building convos, everyday private chat for the ai era · based in paris">
+  <meta property="og:description" content="staff software engineer on picnic at xmtp labs · i build, ship, and run things, and aim to make them beautiful · based in paris">
   <meta property="og:url" content="https://louis.io/">
+  <!-- TODO(louis): no share image exists yet. Add /og.png (1200x630) and og:image / twitter:image, then switch twitter:card to summary_large_image. -->
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@callingcode">
   <meta name="twitter:title" content="Louis Rouffineau · i make stuff on the internet">
-  <meta name="twitter:description" content="i build, ship, and run things, and aim to make them beautiful · currently building convos, everyday private chat for the ai era · based in paris">
+  <meta name="twitter:description" content="staff software engineer on picnic at xmtp labs · i build, ship, and run things, and aim to make them beautiful · based in paris">
+  <!-- TODO(louis): confirm worksFor. You contract through Calling Codes, so worksFor could be Calling Codes instead of XMTP Labs. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Louis Rouffineau",
     "url": "https://louis.io/",
-    "description": "i make stuff on the internet · i build, ship, and run things, and aim to make them beautiful · currently building convos",
+    "jobTitle": "Staff Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "XMTP Labs",
+      "url": "https://xmtplabs.com"
+    },
+    "description": "i make stuff on the internet · staff software engineer on picnic at xmtp labs · i build, ship, and run things, and aim to make them beautiful",
     "sameAs": [
       "https://x.com/callingcode",
       "https://github.com/lourou",
-      "https://www.convos.org"
+      "https://callingcodes.com"
     ]
   }
   </script>
-  <style>
-    body {
-      background: #fdfdfd;
-      color: #111;
-      font-family: monospace;
-      padding: 2rem;
-      margin: 0;
-    }
-    h1 {
-      margin-bottom: 2rem;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-    .block, .contact {
-      margin-top: 2rem;
-    }
-    .contact a {
-      display: block;
-      margin-top: 0.5rem;
-    }
-    p {
-      margin-top: 1.2rem;
-    }
-  </style>
 </head>
 <body>
-  <h1>hi, i'm louis rouffineau</h1>
-  <p>i make stuff on the internet</p>
-  <p>i build, ship, and run things, and aim to make them beautiful</p>
-  <p>currently building <a href="https://www.convos.org">convos</a> – everyday private chat for the ai era, groupchat with friends, family and ai agents</p>
+  <div class="page">
+    <header>
+      <nav class="site-nav" aria-label="site">
+        <a href="/" aria-current="page">louis.io</a>
+        <a href="/now">/now</a>
+        <a href="/builds">/builds</a>
+      </nav>
+    </header>
 
-  <p class="block">
-    <a href="/now">/now</a> – <a href="/builds">/builds</a>
-  </p>
+    <main>
+      <h1>hi, i'm louis rouffineau<span class="caret" aria-hidden="true"></span></h1>
+      <p class="muted">i make stuff on the&nbsp;internet</p>
 
-  <div class="contact">
-    <a href="mailto:mail@louis.io">mail@louis.io</a>
-    <a href="https://x.com/callingcode" target="_blank">@callingcode</a>
-    <a href="https://github.com/lourou" target="_blank">github</a>
+      <p class="lead">staff software engineer on <a href="https://agentpicnic.com/"><strong>picnic</strong></a> at <a href="https://xmtplabs.com">xmtp&nbsp;labs</a></p>
+
+      <p>i build, ship, and run things, and aim to make them&nbsp;beautiful</p>
+
+      <p class="section muted">previously: founding iOS engineer of convos (multiplayer&nbsp;ai&nbsp;agents)</p>
+
+      <p class="muted">before: <span class="nowrap">co-founder</span> &amp; cto of jungle program and lacompany. the rest is&nbsp;on&nbsp;<a href="/builds">/builds</a></p>
+
+      <p>my apps live at <a href="https://callingcodes.com">calling&nbsp;codes</a></p>
+    </main>
+
+    <footer>
+      <ul class="contact">
+        <li><a href="mailto:mail@louis.io">mail@louis.io</a></li>
+        <li><a href="https://x.com/callingcode" target="_blank" rel="noopener">@callingcode</a></li>
+        <li><a href="https://github.com/lourou" target="_blank" rel="noopener">github</a></li>
+      </ul>
+    </footer>
   </div>
 </body>
 </html>
